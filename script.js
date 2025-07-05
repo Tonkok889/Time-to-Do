@@ -19,7 +19,7 @@ const submitReportBtn = document.getElementById('submitReportBtn');
 
 // URL ของ Web App ที่ deploy จาก Google Apps Script ของคุณ
 // คุณจะต้องเปลี่ยน URL นี้เป็นของคุณเอง
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzgGg7X1O5Bpjh9qmOSaf8vWjvZMwz57zNOf6IIxjoZackqAYLMuxfWQZQAvqyFOadcJA/exec'; // *** อย่าลืมเปลี่ยนตรงนี้ ***
+const WEB_APP_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-'; // *** อย่าลืมเปลี่ยนตรงนี้ ***
 
 // ฟังก์ชันสำหรับแสดงข้อความต้อนรับชั่วคราว
 function showWelcomeMessage(message) {
