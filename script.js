@@ -56,8 +56,8 @@ function getTodayDateString() {
 
 // ฟังก์ชันบันทึกข้อมูลไปยัง Google Sheet
 async function sendToGoogleSheet(data) {
-    if (WEB_APP_URL === ''https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-' || !WEB_APP_URL) {
-        console.error(''https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-');
+    if (WEB_APP_URL === 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-' || !WEB_APP_URL) {
+        console.error('https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-');
         showNotification('เกิดข้อผิดพลาด: URL การเชื่อมต่อยังไม่ได้ตั้งค่า', 'warning');
         return;
     }
