@@ -3,12 +3,12 @@ const CHECK_OUT_TIME = { hour: 18, minute: 0 };
 
 const checkInBtn = document.getElementById('checkInBtn');
 const checkOutBtn = document.getElementById('checkOutBtn');
-const welcomeMessage = document.getElementById('welcome-message'); // เปลี่ยนชื่อ ID
+const welcomeMessage = document.getElementById('welcome-message');
 const notificationsDiv = document.getElementById('notifications');
 const dailyStatusSpan = document.getElementById('dailyStatus');
 const checkInTimeSpan = document.getElementById('checkInTime');
 const checkOutTimeSpan = document.getElementById('checkOutTime');
-const currentTimeSpan = document.getElementById('currentTime'); // สำหรับแสดงเวลาปัจจุบัน
+const currentTimeSpan = document.getElementById('currentTime');
 
 // ปุ่มแจ้งเหตุ
 const reportAbsentBtn = document.getElementById('reportAbsentBtn');
@@ -18,8 +18,13 @@ const reportReasonInput = document.getElementById('reportReason');
 const submitReportBtn = document.getElementById('submitReportBtn');
 
 // URL ของ Web App ที่ deploy จาก Google Apps Script ของคุณ
-// คุณจะต้องเปลี่ยน URL นี้เป็นของคุณเอง
-const WEB_APP_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-'; // *** อย่าลืมเปลี่ยนตรงนี้ ***
+// *** คุณจะต้องเปลี่ยน URL นี้เป็นของคุณเอง ***
+// คัดลอก URL จาก Google Apps Script Web App ที่คุณทดสอบแล้วเห็น "Hello from Google Apps Script!" มาวางตรงนี้
+const WEB_APP_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-'; // *** เปลี่ยนตรงนี้ด้วย URL จริงของคุณ! ***
+
+// URL เริ่มต้นที่ใช้ในการตรวจสอบเท่านั้น (ไม่ต้องเปลี่ยน)
+const INITIAL_WEB_APP_URL_PLACEHOLDER = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; 
+
 
 // ฟังก์ชันสำหรับแสดงข้อความต้อนรับชั่วคราว
 function showWelcomeMessage(message) {
@@ -56,15 +61,16 @@ function getTodayDateString() {
 
 // ฟังก์ชันบันทึกข้อมูลไปยัง Google Sheet
 async function sendToGoogleSheet(data) {
-    if (WEB_APP_URL === 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-' || !WEB_APP_URL) {
-        console.error('https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-');
+    // ตรวจสอบว่า WEB_APP_URL ยังคงเป็นค่าเริ่มต้นหรือว่างเปล่าหรือไม่
+    if (WEB_APP_URL === INITIAL_WEB_APP_URL_PLACEHOLDER || !WEB_APP_URL || WEB_APP_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) { // เพิ่มการตรวจสอบ 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'
+        console.error('WEB_APP_URL ยังไม่ได้ถูกตั้งค่า! กรุณาใส่ URL ของ Web App จาก Google Apps Script ที่ถูกต้อง:', WEB_APP_URL);
         showNotification('เกิดข้อผิดพลาด: URL การเชื่อมต่อยังไม่ได้ตั้งค่า', 'warning');
         return;
     }
     try {
         const response = await fetch(WEB_APP_URL, {
             method: 'POST',
-            mode: 'no-cors',
+            mode: 'no-cors', // ใช้ no-cors เพื่อเลี่ยงปัญหา CORS
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -149,7 +155,7 @@ checkInBtn.addEventListener('click', () => {
 
     const record = getDailyRecord();
     if (record.checkIn) {
-        showWelcomeMessage('คุณได้เช็คอินไปแล้ววันนี้'); // เปลี่ยนเป็น welcomeMessage
+        showWelcomeMessage('คุณได้เช็คอินไปแล้ววันนี้');
         return;
     }
 
@@ -192,11 +198,11 @@ checkOutBtn.addEventListener('click', () => {
 
     const record = getDailyRecord();
     if (!record.checkIn) {
-        showWelcomeMessage('กรุณาเช็คอินก่อน'); // เปลี่ยนเป็น welcomeMessage
+        showWelcomeMessage('กรุณาเช็คอินก่อน');
         return;
     }
     if (record.checkOut) {
-        showWelcomeMessage('คุณได้เช็คเอาต์ไปแล้ววันนี้'); // เปลี่ยนเป็น welcomeMessage
+        showWelcomeMessage('คุณได้เช็คเอาต์ไปแล้ววันนี้');
         return;
     }
 
@@ -300,11 +306,10 @@ function checkAfternoonReminder() {
         }
     } else {
         // รีเซ็ตการแจ้งเตือนเมื่อไม่ใช่เวลา 15:30 น. เพื่อให้แจ้งเตือนใหม่ได้ในวันถัดไป
-        // (ส่วนนี้อาจจะทำในฟังก์ชันที่รันตอนเที่ยงคืนจะดีกว่า แต่ใส่ไว้ตรงนี้เผื่อการทดสอบ)
         const today = getTodayDateString();
         const reminderKey = `reminder_1530_${today}`;
         if (localStorage.getItem(reminderKey) && (currentHour > 15 || currentHour < 15 || currentMinute !== 30)) {
-             localStorage.removeItem(reminderKey); // ลบสถานะการแจ้งเตือน
+            localStorage.removeItem(reminderKey); // ลบสถานะการแจ้งเตือน
         }
     }
 }
