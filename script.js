@@ -20,7 +20,7 @@ const submitReportBtn = document.getElementById('submitReportBtn');
 // URL ของ Web App ที่ deploy จาก Google Apps Script ของคุณ
 // *** คุณจะต้องเปลี่ยน URL นี้เป็นของคุณเอง ***
 // คัดลอก URL จาก Google Apps Script Web App ที่คุณทดสอบแล้วเห็น "Hello from Google Apps Script!" มาวางตรงนี้
-const WEB_APP_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLilyfQmcNp7m-2U4ppVyTzQnaXqdDZPCGR9XR05vP2mcxi2nLueHYIxTR0sMHQYWTxVuCHkCFbv8JSmUlGvjUvnqSWPlgLHY7FfGjx_vlNFQy-F7Ui7OWECx_df4-wxAgIC-nrLooooR8kF8b2djd5BufaBzdPpC-hXJs30L8I--twca3Bn0DM9rsxSe-1TLvZ71ov2xqTqNskP9RgBYFkqr8rMgtA9y2jHdK3DcoNYOtUhmW_xfR9vEM0ECXaXWJv8I-umBWm8KwhkmPeBMpfqGTII_lwdt0rbVRVZ&lib=Mg9R9tK4lqH_2vcAx0yadO6ZJCthiv2W-'; // *** เปลี่ยนตรงนี้ด้วย URL จริงของคุณ! ***
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzgGg7X1O5Bpjh9qmOSaf8vWjvZMwz57zNOf6IIxjoZackqAYLMuxfWQZQAvqyFOadcJA/exec'; // *** เปลี่ยนตรงนี้ด้วย URL จริงของคุณ! ***
 
 // URL เริ่มต้นที่ใช้ในการตรวจสอบเท่านั้น (ไม่ต้องเปลี่ยน)
 const INITIAL_WEB_APP_URL_PLACEHOLDER = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; 
