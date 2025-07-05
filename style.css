@@ -1,0 +1,289 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap');
+
+/* การตั้งค่าพื้นฐาน */
+body {
+    font-family: 'Sarabun', sans-serif; /* ฟอนต์หลักสำหรับภาษาไทย */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a2a4b 0%, #0056b3 100%); /* พื้นหลังไล่สีโทนน้ำเงินเข้ม */
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* ป้องกัน scroll bar แนวนอน */
+}
+
+/* Container หลักของแอป */
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* พื้นหลังขาวขุ่นเล็กน้อย */
+    padding: 40px 30px;
+    border-radius: 20px; /* มุมโค้งมนมากขึ้น */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* เงาที่ดูมีมิติ */
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* ขอบบางๆ */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header Section */
+.header-section {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* สีน้ำเงินไล่เฉด */
+    color: white;
+    padding: 30px 20px;
+    margin: -40px -30px 30px -30px; /* ขยายไปเต็มขอบ */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header-section h1 {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 2.5em;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif; /* ฟอนต์ Poppins สำหรับหัวข้อ */
+}
+
+.header-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1em;
+}
+
+/* Card Style (สำหรับ Check-in/out, Record, Report) */
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.card h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+/* Welcome Message */
+.welcome-message {
+    background-color: #e6ffe6;
+    color: #28a745;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 1.1em;
+    animation: fadeIn 0.5s forwards;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+    border: 1px solid #c3e6cb;
+}
+
+/* Notifications */
+.notifications {
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #ffeadb; /* โทนส้มอ่อน */
+    color: #d17531; /* สีส้มเข้ม */
+    border: 1px solid #ffd4b3;
+    font-weight: 500;
+    font-size: 1em;
+    animation: fadeIn 0.5s forwards;
+    display: none;
+    box-shadow: 0 2px 8px rgba(209, 117, 49, 0.1);
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+.buttons, .report-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* ระยะห่างระหว่างปุ่ม */
+    margin-bottom: 20px;
+}
+
+.buttons button, .report-buttons button, .btn-submit-report {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    min-width: 130px;
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* Check-in/out Buttons */
+.btn-checkin {
+    background-color: #007bff; /* สีน้ำเงิน */
+    color: white;
+}
+.btn-checkin:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.btn-checkout {
+    background-color: #ff9800; /* สีส้ม */
+    color: white;
+}
+.btn-checkout:hover {
+    background-color: #e68900;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+}
+
+/* Report Buttons */
+.btn-report {
+    background-color: #6c757d; /* สีเทา */
+    color: white;
+}
+.btn-report:hover {
+    background-color: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(108, 117, 125, 0.3);
+}
+
+/* Submit Report Button */
+.btn-submit-report {
+    background-color: #28a745; /* สีเขียว */
+    color: white;
+    width: calc(100% - 20px); /* ให้กว้างเท่า input */
+    margin-top: 15px;
+}
+.btn-submit-report:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+}
+
+
+/* Current Time Display */
+.current-time-display {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #555;
+    font-family: 'Poppins', sans-serif; /* ฟอนต์ Poppins สำหรับเวลา */
+}
+
+.current-time-display span {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #007bff;
+}
+
+/* Record Display */
+.record-details p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.record-details span {
+    font-weight: bold;
+    color: #2c3e50;
+    font-family: 'Poppins', sans-serif; /* ฟอนต์ Poppins สำหรับเวลาและสถานะ */
+}
+
+/* Report Input */
+.report-info {
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.report-reason-input {
+    width: calc(100% - 40px); /* คำนวณความกว้างรวม padding */
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Sarabun', sans-serif;
+    margin-top: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.report-reason-input:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .header-section {
+        margin: -30px -20px 25px -20px;
+        padding: 25px 15px;
+    }
+
+    .header-section h1 {
+        font-size: 2em;
+    }
+
+    .header-section p {
+        font-size: 1em;
+    }
+
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    .buttons, .report-buttons {
+        flex-direction: column; /* จัดปุ่มให้อยู่ในแนวตั้ง */
+        gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+    }
+
+    .buttons button, .report-buttons button {
+        width: 100%;
+        margin: 0;
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .btn-submit-report {
+        width: 100%; /* ให้เต็มความกว้าง */
+    }
+
+    .report-reason-input {
+        width: calc(100% - 30px); /* ปรับความกว้างของ input */
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบเช็คอิน-เช็คเอาต์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>ระบบเช็คอิน-เช็คเอาต์พนักงาน</h1>
+            <p>ยินดีต้อนรับสู่ระบบบันทึกเวลาการทำงานของคุณ</p>
+        </div>
+
+        <div id="welcome-message" class="status-message welcome-message"></div>
+        <div id="notifications" class="notifications"></div>
+
+        <div class="card check-in-out-section">
+            <h2>บันทึกเวลาของคุณ</h2>
+            <div class="buttons">
+                <button id="checkInBtn" class="btn-checkin">เช็คอิน</button>
+                <button id="checkOutBtn" class="btn-checkout">เช็คเอาต์</button>
+            </div>
+            <div class="current-time-display">
+                <p>เวลาปัจจุบัน: <span id="currentTime">--:--:--</span></p>
+            </div>
+        </div>
+
+        <div class="card record-display">
+            <h2>บันทึกการทำงานวันนี้</h2>
+            <div class="record-details">
+                <p>สถานะ: <span id="dailyStatus"></span></p>
+                <p>เวลาเช็คอิน: <span id="checkInTime"></span></p>
+                <p>เวลาเช็คเอาต์: <span id="checkOutTime"></span></p>
+            </div>
+        </div>
+
+        <div class="card report-absence-section">
+            <h2>แจ้งเหตุการณ์</h2>
+            <p class="report-info">สามารถแจ้งเหตุ ขาดงาน, ลางาน, หรือมาสาย เพื่อบันทึกข้อมูลไว้</p>
+            <div class="report-buttons">
+                <button id="reportAbsentBtn" class="btn-report">ขาดงาน</button>
+                <button id="reportLeaveBtn" class="btn-report">ลางาน</button>
+                <button id="reportLateBtn" class="btn-report">แจ้งมาสาย</button>
+            </div>
+            <input type="text" id="reportReason" placeholder="ระบุเหตุผล (ถ้ามี)" class="report-reason-input">
+            <button id="submitReportBtn" class="btn-submit-report">ส่งข้อมูลแจ้งเหตุ</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
