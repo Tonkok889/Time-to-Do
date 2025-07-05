@@ -19,7 +19,7 @@ const submitReportBtn = document.getElementById('submitReportBtn');
 
 // URL ของ Web App ที่ deploy จาก Google Apps Script ของคุณ
 // คุณจะต้องเปลี่ยน URL นี้เป็นของคุณเอง
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzGg7X105BpjH9qm0Saf8WvjVMwz57ZN0f6IlxjoZackqAYLMuXfWQZQAvqyF0adcJA/exec'; // *** อย่าลืมเปลี่ยนตรงนี้ ***
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz2K1BH9pHhwDU2beIcGbcvGF1aJS0OkYY_x7ad4AGD6EzQ0eQeHpU9QuzpCoRQpiWlww/exec'; // *** อย่าลืมเปลี่ยนตรงนี้ ***
 
 // ฟังก์ชันสำหรับแสดงข้อความต้อนรับชั่วคราว
 function showWelcomeMessage(message) {
@@ -56,8 +56,8 @@ function getTodayDateString() {
 
 // ฟังก์ชันบันทึกข้อมูลไปยัง Google Sheet
 async function sendToGoogleSheet(data) {
-    if (WEB_APP_URL === 'https://script.google.com/macros/s/AKfycbzgGg7X1O5Bpjh9qmOSaf8vWjvZMwz57zNOf6IIxjoZackqAYLMuxfWQZQAvqyFOadcJA/exec' || !WEB_APP_URL) {
-        console.error('https://script.google.com/macros/s/AKfycbzgGg7X1O5Bpjh9qmOSaf8vWjvZMwz57zNOf6IIxjoZackqAYLMuxfWQZQAvqyFOadcJA/exec');
+    if (WEB_APP_URL === 'https://script.google.com/macros/s/AKfycbz2K1BH9pHhwDU2beIcGbcvGF1aJS0OkYY_x7ad4AGD6EzQ0eQeHpU9QuzpCoRQpiWlww/exec' || !WEB_APP_URL) {
+        console.error('https://script.google.com/macros/s/AKfycbz2K1BH9pHhwDU2beIcGbcvGF1aJS0OkYY_x7ad4AGD6EzQ0eQeHpU9QuzpCoRQpiWlww/exec');
         showNotification('เกิดข้อผิดพลาด: URL การเชื่อมต่อยังไม่ได้ตั้งค่า', 'warning');
         return;
     }
